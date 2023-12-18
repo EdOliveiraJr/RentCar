@@ -9,16 +9,16 @@ namespace RentCar.Model
 {
     public class Pagamento
     {
-        private int _id;
+        public int _id { get; private set; }
         private double _valor;
-        private StatusPagamento _status { get; set; }
+        public StatusPagamento status { get; private set; }
 
 
         public Pagamento(int id, double valor)
         {
             _id = id;
             _valor = valor;
-            _status = StatusPagamento.Pendente;
+            status = StatusPagamento.Pendente;
         }
 
         internal void Show()
@@ -26,14 +26,14 @@ namespace RentCar.Model
             Console.WriteLine($"Pagamento:\n" +
                 $"ID: {_id}\n" +
                 $"Valor: {_valor}\n" +
-                $"Status: {_status}\n");
+                $"Status: {status}\n");
         }
 
         public void EfetuarPagamento(double dinheiro)
         {
             if (dinheiro >= _valor) 
             {
-                _status = StatusPagamento.Confirmado;
+                status = StatusPagamento.Confirmado;
                 Console.WriteLine($"Pagamento {_id} efetuado com sucesso");
             }
             else {
