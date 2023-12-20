@@ -11,5 +11,6 @@ namespace RentCar.Enum
         Gerente,
         Supervisor,
         Atendente,
+        Cliente,
     }
 }
