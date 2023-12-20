@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentCar.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace RentCar.Model
         private string _modelo;
         private string _marca;
         private int _ano;
+        private StatusVeiculo _status { get; set; }
 
         public Veiculo(string placa, string modelo, string marca, int ano)
         {
@@ -19,6 +21,7 @@ namespace RentCar.Model
             _modelo = modelo;
             _marca = marca;
             _ano = ano;
+            _status = StatusVeiculo.Livre;
         }
 
         public virtual void Show()
@@ -28,7 +31,9 @@ namespace RentCar.Model
                 $"\nPlaca: {_placa}" +
                 $"\nModelo: {_modelo}" +
                 $"\nMarca: {_marca}" +
-                $"\nAno: {_ano}\n");
+                $"\nAno: {_ano}" +
+                $"\nStatus: {_status}\n");
+
         }
 
     }
